@@ -1,9 +1,10 @@
 class SteamUser:
-    played_hours = 0
+    played_hours = 0  # instead: line 7
 
     def __init__(self, username, games):
         self.username = username
         self.games = games
+        # self.played_hours = 0
 
     def play(self, game, hours):
         if game in self.games:
@@ -28,3 +29,5 @@ print(user.buy_game("CS:GO"))
 print(user.buy_game("Oxygen Not Included"))
 print(user.play("Oxygen Not Included", 6))
 print(user.status())
+user1 = SteamUser("Peter", ["Fortnite"])
+print(user1.__dict__)
