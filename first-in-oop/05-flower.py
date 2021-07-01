@@ -11,11 +11,10 @@ class Flower:
             self.is_happy = True
 
     def status(self):
-        if self.is_happy:
-            return f"{self.name} is happy"
-        else:
-            return f"{self.name} is not happy"
-
+        # if self.is_happy:
+        #     return f"{self.name} is happy"
+        # return f"{self.name} is not happy"
+        return f"{self.name} is happy" if self.is_happy else f"{self.name} is not happy"
 
 flower = Flower("Lilly", 100)
 flower.water(50)
@@ -23,7 +22,8 @@ print(flower.status())
 flower.water(60)
 print(flower.status())
 flower.water(100)
+print(flower.__dict__)
 print(flower.status())
-flower2 = Flower("Tullup", 100)
+flower2 = Flower("Tulip", 100)
 print(flower2.__dict__)
 print(flower2.status())
