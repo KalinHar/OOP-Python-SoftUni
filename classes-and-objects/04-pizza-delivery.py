@@ -22,14 +22,13 @@ class PizzaDelivery:
         if quantity > self.ingredients[ingredient]:
             return f"Please check again the desired quantity of {ingredient}!"
         self.ingredients[ingredient] -= quantity
-        # if self.ingredients[ingredient] == 0:
-        #     del self.ingredients[ingredient]
         self.price -= quantity * price_per_ingredient
 
     def make_order(self):
         self.ordered = True
         ingredients_lists = [f"{i}: {q}" for i, q in self.ingredients.items()]
-        return f"You've ordered pizza {self.name} prepared with {', '.join(ingredients_lists)} and the price will be {self.price}lv."
+        return f"You've ordered pizza {self.name} prepared with {', '.join(ingredients_lists)}" \
+               f" and the price will be {self.price}lv."
 
 
 margarita = PizzaDelivery('Margarita', 11, {'cheese': 2, 'tomatoes': 1})
