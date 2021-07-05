@@ -13,10 +13,10 @@ class User:
                 library.rented_books[self.username] = {}
             library.rented_books[self.username].update(book)
             return f"{book_name} successfully rented for the next {days_to_return} days!"
-        for book in library.rented_books.values():
-            if book_name in book:
+        for rent_books in library.rented_books.values():
+            if book_name in rent_books:
                 return f'The book "{book_name}" is already rented and ' \
-                       f'will be available in {book[book_name]} days!'
+                       f'will be available in {rent_books[book_name]} days!'
 
     def return_book(self, author, book_name, library):
         if book_name in self.books:
