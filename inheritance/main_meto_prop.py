@@ -1,3 +1,6 @@
+from dataclasses import dataclass
+
+
 class Person:
     def __init__(self, name, age):
         self.name = name
@@ -42,6 +45,13 @@ class Worker(Person, Vacation):
         return super().__repr__() + " who is worker"
 
 
+@dataclass
+class Probs:
+    """Docs for class Probs"""
+    name: str
+    age: int = 12
+
+
 ww = Worker("Rudi", 18, "very good")
 ww.change_name("Chery")
 print(ww.name)
@@ -49,4 +59,9 @@ print(ww)
 ww.set_vacation()
 print(ww.is_on_vacation)
 print(ww.__dict__)
+print("-----------------------------------------")
+pepe = Probs("Pepe")
+print(pepe)
+print(pepe.name)
+print(pepe.__doc__)
 
