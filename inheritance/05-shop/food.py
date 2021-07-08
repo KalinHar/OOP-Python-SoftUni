@@ -1,5 +1,5 @@
 from project.product import Product
-# form setings import FOOD_QUANTITY
+# form settings import FOOD_QUANTITY
 
 class Food(Product):
     def __init__(self, name, quantity=15):
