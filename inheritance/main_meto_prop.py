@@ -65,3 +65,8 @@ print(pepe)
 print(pepe.name)
 print(pepe.__doc__)
 
+getattr(pepe, "name", "Error")  # error or None or anything, if no name
+hasattr(pepe, "age")  # return True or False
+setattr(pepe, "name", "George")  # change self.name to George or create it if not exist
+delattr(pepe, "name")  # delete self.name
+

@@ -19,20 +19,14 @@ class Profile:
 
     @password.setter
     def password(self, password):
-        def pass_valid(text):
-            upper, digit = False, False
-            for ch in text:
-                if ch.isupper():
-                    upper = True
-                if ch.isdigit():
-                    digit = True
-            if upper and digit and len(text) >= 8:
-                return True
-            return False
-
-        if not pass_valid(password):
+        if not self.pass_valid(password):
             raise ValueError("The password must be 8 or more characters with at least 1 digit and 1 uppercase letter.")
         self.__password = password
+
+    def pass_valid(self, text):
+        has_upper = [ch for ch in text if ch.isupper()]
+        has_digit = [ch for ch in text if ch.isdigit()]
+        return has_upper and has_digit and len(text) >= 8
 
     def __str__(self):
         return f'You have a profile with username: "{self.__username}" and password: {"*" * len(self.__password)}'
