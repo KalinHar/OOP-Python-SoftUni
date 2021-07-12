@@ -22,7 +22,7 @@ print(soup.grams)
 
 cafe = Coffee("Mokka", 0.21)
 print(cafe.__class__.__bases__[0].__name__)
-print(cafe.__class__.__name__)
+print(cafe.__class__.__name__)  # type(cafe).__name__
 print(cafe.__class__.__base__.__name__)
 print(cafe.__class__.__base__.__base__.__name__)
 print(cafe.__class__.__base__.__base__.__base__.__name__)

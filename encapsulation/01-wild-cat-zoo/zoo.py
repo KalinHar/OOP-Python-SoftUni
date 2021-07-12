@@ -49,16 +49,16 @@ class Zoo:
     def animals_status(self):
         result = [f"You have {len(self.animals)} animals"]
 
-        lions = [a.__repr__() for a in self.animals if a.__class__.__name__ == "Lion"]
+        lions = [repr(a) for a in self.animals if a.__class__.__name__ == "Lion"]
         result.extend([f"----- {len(lions)} Lions:"])
         result.extend(lions)
 
-        tigers = [a.__repr__() for a in self.animals if a.__class__.__name__ == "Tiger"]
+        tigers = [repr(a) for a in self.animals if a.__class__.__name__ == "Tiger"]
         result.extend([f"----- {len(tigers)} Tigers:"])
         result.extend(tigers)
 
-        cheetahs = [a.__repr__() for a in self.animals if a.__class__.__name__ == "Cheetah"]
-        result.extend([f"----- {len(tigers)} Cheetahs:"])
+        cheetahs = [repr(a) for a in self.animals if a.__class__.__name__ == "Cheetah"]
+        result.extend([f"----- {len(cheetahs)} Cheetahs:"])
         result.extend(cheetahs)
 
         return "\n".join(result)
