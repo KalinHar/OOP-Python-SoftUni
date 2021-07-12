@@ -1,4 +1,4 @@
-from project.product import Product
+from encapsulation.resturant.product import Product
 
 
 class Food(Product):

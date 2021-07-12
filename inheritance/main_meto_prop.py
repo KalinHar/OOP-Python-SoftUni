@@ -18,6 +18,16 @@ class Person:
         return "This is a person"
 
 
+class Person2:
+    def __init__(self, name):
+        self._name = name
+
+    name = property(
+        lambda x: x._name,
+        lambda x, value: x.__setattr__('_name', value),
+        lambda x: x.__delattr__('_name'), 'Name property')
+
+
 class Vacation:
     def __init__(self):
         self.is_on_vacation = False
@@ -70,3 +80,7 @@ hasattr(pepe, "age")  # return True or False
 setattr(pepe, "name", "George")  # change self.name to George or create it if not exist
 delattr(pepe, "name")  # delete self.name
 
+p2 = Person2('Dodror')
+print(p2.__dict__)
+print(hasattr(p2,"_name"))
+print(hasattr(p2,"Dodror"))

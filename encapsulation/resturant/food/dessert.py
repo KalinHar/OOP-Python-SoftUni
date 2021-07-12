@@ -1,4 +1,4 @@
-from project.food.food import Food
+from encapsulation.resturant.food.food import Food
 
 
 class Dessert(Food):

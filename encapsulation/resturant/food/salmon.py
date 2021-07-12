@@ -1,4 +1,4 @@
-from project.food.main_dish import MainDish
+from encapsulation.resturant.food.main_dish import MainDish
 
 
 class Salmon(MainDish):
