@@ -9,14 +9,8 @@ class Integer:
         return f'value is not a float'
 
     @classmethod
-    def from_roman(cls, value):
-        roman = {'M': 1000,
-                 'D': 500,
-                 'C': 100,
-                 'L': 50,
-                 'X': 10,
-                 'V': 5,
-                 'I': 1}
+    def from_roman(cls, value):  # can "pip install roman" and import roman
+        roman = {'M': 1000, 'D': 500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1}
         last_char = 0
         result = 0
         n = len(value)
