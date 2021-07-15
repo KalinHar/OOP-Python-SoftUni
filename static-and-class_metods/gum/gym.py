@@ -26,23 +26,16 @@ class Gym:
         if subscription not in self.subscriptions:
             self.subscriptions.append(subscription)
 
+    @staticmethod
+    def get_object(object_id, class_iter):
+        return next(filter(lambda o: o.id == object_id, class_iter))
+
     def subscription_info(self, subscription_id):
-        subscription = [sub for sub in self.subscriptions if sub.id == subscription_id][0]
-
-        customer_id = subscription.customer_id
-        customer = [cus for cus in self.customers if cus.id == customer_id][0]
-
-        trainer_id = subscription.customer_id
-        trainer = [tr for tr in self.trainers if tr.id == trainer_id][0]
-
-        plan_id = subscription.exercise_id
-        plan = next(filter(lambda pl: pl.id == plan_id, self.plans))
-        # plan = [pl for pl in self.plans if pl.id == plan_id][0]
-
-        equ_id = plan.equipment_id
-        equ = next(eq for eq in self.equipment if eq.id == equ_id)
-        # equ = [eq for eq in self.equipment if eq.id == equ_id][0]
+        subscription = self.get_object(subscription_id, self.subscriptions)
+        customer = self.get_object(subscription.customer_id, self.customers)
+        trainer = self.get_object(subscription.trainer_id, self.trainers)
+        plan = self.get_object(subscription.exercise_id, self.plans)
+        equ = self.get_object(plan.equipment_id, self.equipment)
 
         result = [repr(subscription), repr(customer), repr(trainer), repr(equ), repr(plan)]
-
         return "\n".join(result)
