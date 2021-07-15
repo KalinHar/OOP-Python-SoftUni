@@ -1,3 +1,6 @@
+import datetime
+
+
 class DVD:
     def __init__(self, name, id, creation_year, creation_month, age_restriction):
         self.name = name
@@ -9,10 +12,9 @@ class DVD:
 
     @classmethod
     def from_date(cls, id, name, date, age_restriction):
-        to_str ={1: "January", 2: "February", 3: "March", 4: "April", 5: "May", 6: "June",
-                 7: "July", 8: "August", 9: "September", 10: "October", 11: "November", 12: "December"}
         _, month, year, = date.split(".")
-        return cls(name, id, int(year), to_str[int(month)], age_restriction)
+        month = datetime.date(2000, int(month), 1).strftime("%B")
+        return cls(name, id, int(year), month, age_restriction)
 
     def __repr__(self):
         rent = "rented" if self.is_rented else "not rented"
