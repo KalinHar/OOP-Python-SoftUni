@@ -1,3 +1,5 @@
+from abc import ABC, abstractmethod
+
 class Shape:
     def calculate_area(self):
         return None
@@ -5,6 +7,7 @@ class Shape:
 
 class Square(Shape):
     side_length = 2
+
     def calculate_area(self):
         return self.side_length * 2
 
@@ -12,6 +15,7 @@ class Square(Shape):
 class Triangle(Shape):
     base_length = 4
     height = 3
+
     def calculate_area(self):
         return 0.5 * self.base_length * self.height
 
@@ -72,7 +76,8 @@ print(person_one > person_two)  # False
 print(person_one.salary > person_two.salary)  # False
 print(person_one.salary > 10)  # True
 
-
+# duck typing ---------------------------------------
+# we don't care of object, only same method
 class Cat:
     def sound(self):
         print("Meow!")
@@ -86,8 +91,7 @@ class Train:
 for any_type in Cat(), Train():
     any_type.sound()
 
-
-from abc import ABC, abstractmethod
+#---------------------------------------------------------
 
 
 class Animal(ABC):
@@ -120,4 +124,4 @@ cat.sound()
 dog = Dog("Willy")
 dog.sound()
 animal = Animal("Willy")
-animal.sound()
+animal.sound()  # NotImplementedError
