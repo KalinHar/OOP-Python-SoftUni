@@ -19,8 +19,8 @@ class Car(Vehicle):
         self.fuel_consumption = fuel_consumption
 
     def drive(self, distance):
-        if distance * (self.fuel_consumption + self.air_condition_consumption) <= self.fuel_quantity:
-            self.fuel_quantity -= distance * (self.fuel_consumption + self.air_condition_consumption)
+        if distance * (self.fuel_consumption + Car.air_condition_consumption) <= self.fuel_quantity:
+            self.fuel_quantity -= distance * (self.fuel_consumption + Car.air_condition_consumption)
 
     def refuel(self, fuel):
         self.fuel_quantity += fuel
@@ -35,11 +35,11 @@ class Truck(Vehicle):
         self.fuel_consumption = fuel_consumption
 
     def drive(self, distance):
-        if distance * (self.fuel_consumption + self.air_condition_consumption) <= self.fuel_quantity:
-            self.fuel_quantity -= distance * (self.fuel_consumption + self.air_condition_consumption)
+        if distance * (self.fuel_consumption + Truck.air_condition_consumption) <= self.fuel_quantity:
+            self.fuel_quantity -= distance * (self.fuel_consumption + Truck.air_condition_consumption)
 
     def refuel(self, fuel):
-        self.fuel_quantity += fuel * self.tiny_hole
+        self.fuel_quantity += fuel * Truck.tiny_hole
 
 
 car = Car(20, 5)

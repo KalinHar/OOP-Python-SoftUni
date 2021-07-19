@@ -54,6 +54,9 @@ class Account:
     def __str__(self):
         return f"Account of {self.owner} with starting amount: {self.amount}"
 
+    def __reversed__(self):
+        return reversed(self._transactions)
+
     def __repr__(self):
         return f"Account({self.owner}, {self.amount})"
 

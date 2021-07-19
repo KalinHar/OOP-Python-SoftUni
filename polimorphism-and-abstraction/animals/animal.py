@@ -13,4 +13,4 @@ class Animal(ABC):
 
     @abstractmethod
     def __repr__(self):
-        pass
+        return f"This is {self.name}. {self.name} is a {self.age} year old {self.gender} {self.__class__.__name__}"

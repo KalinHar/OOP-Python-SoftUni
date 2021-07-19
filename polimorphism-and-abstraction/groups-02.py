@@ -27,7 +27,7 @@ class Group:
         return f'Person {key}: {self.people[key]}'
 
     def __repr__(self):
-        return f"Group {self.name} with members {', '.join([repr(p) for p in self.people])}"
+        return f"Group {self.name} with members {', '.join(repr(p) for p in self.people)}"
 
 
 p0 = Person('Aliko', 'Dangote')
