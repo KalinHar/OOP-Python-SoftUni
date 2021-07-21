@@ -13,3 +13,17 @@ class Book:
         self.author = author
         self.location = location
         self.page = 0
+
+
+class ExploreBook:
+    @staticmethod
+    def page(book):
+        return book.page
+
+    @staticmethod
+    def location(book):
+        return book.location
+
+    @staticmethod
+    def title(book):
+        return f"{book.title} - {book.author}"

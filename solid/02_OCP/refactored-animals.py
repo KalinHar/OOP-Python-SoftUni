@@ -1,19 +1,26 @@
-class Animal:
+from abc import ABC, abstractmethod
+
+
+class Animal(ABC):
     def __init__(self, species):
         self.species = species
 
     def get_species(self):
         return self.species
 
+    @abstractmethod
+    def sound(self):
+        pass
 
-class AdditionalSounds(Animal):
-    @staticmethod
-    def animal_sound(animals):
-        for animal in animals:
-            if animal.species == 'cat':
-                print('meow')
-            elif animal.species == 'dog':
-                print('woof-woof')
+
+class Cat(Animal):
+    def sound(self):
+        print("meow")
+
+
+class Dog(Animal):
+    def sound(self):
+        print("bay")
 
 
 animals = [Animal('cat'), Animal('dog')]
