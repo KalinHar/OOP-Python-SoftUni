@@ -107,16 +107,19 @@ class AreaCalculator(Calculator):
         return f"Shapes areas:\n{total}"
 
 
-shapes = [Rectangle(1, 6), Triangle(2, 3), Circle(10)]
-calculator = AreaCalculator(shapes)
+shapes_to_area = [Rectangle(1, 6), Triangle(2, 3), Circle(10)]
+calc_area = AreaCalculator(shapes_to_area)
+calc_area.add_shape(Triangle(100, 3))
 
-print("The total area is: ", calculator.total_area)
+calc_perim = PerimeterCalculator([Triangle(3, 4, 5), Circle(10)])
 
-calculator.add_shape(Triangle(100, 3))
-calc = PerimeterCalculator([Triangle(3, 4, 5), Circle(10)])
-print(calculator.total_area)
-print(calculator.shapes_areas)
-print(calc.shapes_perimeters)
+print(calc_area.total_area)
+print(calc_area.shapes_areas)
+print(calc_perim.shapes_perimeters)
+
+calc_perim.add_shape(Rectangle(4, 5))
+print(calc_perim.shapes_perimeters)
+
 
 # TODO try to bring new feature Circle so that you follow OPen/closed principle
 # shapes = [Rectangle(1, 6), Triangle(2, 3), Circle(6)]

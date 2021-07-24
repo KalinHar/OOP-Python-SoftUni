@@ -1,19 +1,16 @@
 from collections import deque
 
-class vowels:
-    vowels = "AaEeIiOoUuYy"
 
+class vowels:
     def __init__(self, text):
-        self.text = deque(text)
+        self.text_vowels = deque(char for char in text if char in "AaEeIiOoUuYy")
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        while self.text:
-            char = self.text.popleft()
-            if char in self.vowels:
-                return char
+        if self.text_vowels:
+            return self.text_vowels.popleft()
         raise StopIteration
 
 
