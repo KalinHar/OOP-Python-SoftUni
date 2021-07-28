@@ -1,24 +1,9 @@
-# from functools import wraps
-#
-#
-# def cache(func):
-#     @wraps(func)
-#     def wrapper(n):
-#         num = func(n)
-#         if n not in wrapper.log:
-#             wrapper.log[n] = num
-#         return wrapper.log[n]
-#     wrapper.log = {}
-#     return wrapper
-
-
 # class cache:
 #     def __init__(self, func):
 #         self.func = func
 #         self.log = {}
 #
 #     def __call__(self, n):
-#         # if n not in self.log:
 #         if n == 0:
 #             self.log[n] = n
 #         elif n == 1:
@@ -34,10 +19,9 @@ def cache(func):
         wrapper.log[n] = func(n)
         if n == 1:
             wrapper.log[0] = 0
-        return wrapper.log[n]
+        return func(n)
     wrapper.log = {}
     return wrapper
-
 
 
 @cache

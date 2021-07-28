@@ -1,15 +1,4 @@
 # from time import time
-# from functools import wraps
-#
-# def exec_time(func):
-#     @wraps(func)
-#     def wrapper(*args, **kwargs):
-#         start = time()
-#         func(*args, **kwargs)
-#         stop = time()
-#         return stop - start
-#
-#     return wrapper
 #
 # class exec_time:
 #     def __init__(self, func):
@@ -17,7 +6,7 @@
 #
 #     def __call__(self, *args, **kwargs):
 #         start = time()
-#         res = self.func(*args, **kwargs)
+#         self.func(*args, **kwargs)
 #         end = time()
 #         return end - start
 
