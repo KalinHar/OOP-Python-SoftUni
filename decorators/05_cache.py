@@ -1,27 +1,24 @@
-# class cache:
-#     def __init__(self, func):
-#         self.func = func
-#         self.log = {}
-#
-#     def __call__(self, n):
-#         if n == 0:
-#             self.log[n] = n
-#         elif n == 1:
-#             self.log[0] = 0
-#             self.log[n] = n
-#         else:
-#             self.log[n] = self(n - 1) + self(n - 2)
-#         return self.log[n]
+class cache:
+    def __init__(self, func):
+        self.func = func
+        self.log = {}
+
+    def __call__(self, n):
+        if n not in self.log:
+            if n == 1:
+                self.log[0] = 0
+            self.log[n] = self.func(n)
+        return self.func(n)
 
 
-def cache(func):
-    def wrapper(n):
-        wrapper.log[n] = func(n)
-        if n == 1:
-            wrapper.log[0] = 0
-        return func(n)
-    wrapper.log = {}
-    return wrapper
+# def cache(func):
+#     def wrapper(n):
+#         wrapper.log[n] = func(n)
+#         if n == 1:
+#             wrapper.log[0] = 0
+#         return func(n)
+#     wrapper.log = {}
+#     return wrapper
 
 
 @cache

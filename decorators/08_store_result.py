@@ -1,7 +1,16 @@
-def store_results(func):
-    def wrapper(*args):
-        return print(f"Function '{func.__name__}' was called. Result: {func(*args)}")
-    return wrapper
+class store_results:
+    def __init__(self, func):
+        self.func = func
+
+    def __call__(self,*args):
+        with open('result.txt', 'a+') as f:
+            f.write(f"Function '{self.func.__name__}' was called. Result: {self.func(*args)}\n")
+
+
+# def store_results(func):
+#     def wrapper(*args):
+#         return print(f"Function '{func.__name__}' was called. Result: {func(*args)}")
+#     return wrapper
 
 
 @store_results
