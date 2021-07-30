@@ -77,10 +77,10 @@ class Car:
 # print(car)
 
 
-import unittest
+from unittest import TestCase, main
 
 
-class CarTests(unittest.TestCase):
+class CarTests(TestCase):
 
     def setUp(self):
         self.car = Car("Toyota", "Rav4", 6, 60)
@@ -88,37 +88,43 @@ class CarTests(unittest.TestCase):
     def test_constructor(self):
         result = self.car.make, self.car.model, self.car.fuel_consumption, self.car.fuel_capacity, self.car.fuel_amount
         exp_result = "Toyota", "Rav4", 6, 60, 0
-        self.assertEqual(result, exp_result)
+        self.assertEqual(exp_result, result)
 
     def test_invalid_make(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(Exception) as ex:
             self.car.make = ""
+        self.assertEqual("Make cannot be null or empty!" , str(ex.exception))
 
     def test_invalid_model(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(Exception) as ex:
             self.car.model = ""
+        self.assertEqual("Model cannot be null or empty!", str(ex.exception))
 
     def test_invalid_fuel_consumption(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(Exception) as ex:
             self.car.fuel_consumption = 0
+        self.assertEqual("Fuel consumption cannot be zero or negative!", str(ex.exception))
 
     def test_invalid_fuel_capacity(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(Exception) as ex:
             self.car.fuel_capacity = 0
+        self.assertEqual("Fuel capacity cannot be zero or negative!", str(ex.exception))
 
     def test_invalid_fuel_amount(self):
-        with self.assertRaises(Exception):
-            self.car.fuel_amount(-1)
+        with self.assertRaises(Exception) as ex:
+            self.car.fuel_amount = -1
+        self.assertEqual("Fuel amount cannot be negative!", str(ex.exception))
 
     def test_correct_refuel(self):
         self.car.refuel(70)
         result = self.car.fuel_capacity
         exp_result = 60
-        self.assertEqual(result, exp_result)
+        self.assertEqual(exp_result, result)
 
     def test_incorrect_refuel(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(Exception) as ex:
             self.car.refuel(0)
+        self.assertEqual("Fuel amount cannot be zero or negative!", str(ex.exception))
 
     def test_correct_drive(self):
         self.car.refuel(30)
@@ -129,9 +135,10 @@ class CarTests(unittest.TestCase):
 
     def test_incorrect_drive(self):
         self.car.refuel(30)
-        with self.assertRaises(Exception):
+        with self.assertRaises(Exception) as ex:
             self.car.drive(501)
+        self.assertEqual("You don't have enough fuel to drive!", str(ex.exception))
 
 
 if __name__ == "__main__":
-    unittest.main()
+    main()

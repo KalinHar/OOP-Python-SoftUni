@@ -42,70 +42,76 @@ class IntegerList:
         return self.get_data().index(el)
 
 
-import unittest
+from unittest import TestCase, main
 
 
-class IntegerListTests(unittest.TestCase):
+class IntegerListTests(TestCase):
 
     def setUp(self):
         self.nums = IntegerList(1, 2, "Tom", 3, [1, 2, 3], 10, 4)
 
     def test_nums_constructor(self):
-        result = self.nums.get_data()
+        result = self.nums.get_data()  # self.nums._IntegerList__data
         exp_result = [1, 2, 3, 10, 4]
-        self.assertEqual(result, exp_result)
+        self.assertEqual(exp_result, result)
 
     def test_add_int_element(self):
         result = self.nums.add(5)
         exp_result = [1, 2, 3, 10, 4, 5]
-        self.assertEqual(result, exp_result)
+        self.assertEqual(exp_result, result)
 
     def test_add_non_int_element(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(ValueError )as ex:
             self.nums.add("element")
+        self.assertEqual("Element is not Integer" , str(ex.exception))
 
     def test_remove_correct_index(self):
         result = self.nums.remove_index(2)
         exp_result = 3
-        self.assertEqual(result, exp_result)
+        self.assertEqual(exp_result, result)
+        self.assertEqual([1, 2, 10, 4], self.nums._IntegerList__data)
 
     def test_remove_incorrect_index(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(IndexError) as ex:
             self.nums.remove_index(5)
+        self.assertEqual("Index is out of range", str(ex.exception))
 
     def test_get_correct_index(self):
         result = self.nums.get(1)
         exp_result = 2
-        self.assertEqual(result, exp_result)
+        self.assertEqual(exp_result, result)
 
     def test_get_incorrect_index(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(IndexError)as ex:
             self.nums.get(5)
+        self.assertEqual("Index is out of range", str(ex.exception))
 
     def test_insert_correct_index_el(self):
         self.nums.insert(1, 100)
         result = self.nums.get_data()
         exp_result = [1, 100, 2, 3, 10, 4]
-        self.assertEqual(result, exp_result)
+        self.assertEqual(exp_result, result)
 
     def test_insert_incorrect_index(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(IndexError) as ex:
             self.nums.insert(5, 100)
+        self.assertEqual("Index is out of range", str(ex.exception))
 
     def test_insert_incorrect_el(self):
-        with self.assertRaises(Exception):
+        with self.assertRaises(ValueError) as ex:
             self.nums.insert(1, "element")
+        self.assertEqual("Element is not Integer", str(ex.exception))
 
     def test_get_biggest_el(self):
         result = self.nums.get_biggest()
         exp_result = 10
-        self.assertEqual(result, exp_result)
+        self.assertEqual(exp_result, result)
 
     def test_get_index_of_el(self):
         result = self.nums.get_index(4)
         exp_result = 4
-        self.assertEqual(result, exp_result)
+        self.assertEqual(exp_result, result)
 
 
 if __name__ == "__main__":
-    unittest.main()
+    main()
