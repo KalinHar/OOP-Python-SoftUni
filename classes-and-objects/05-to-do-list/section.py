@@ -14,7 +14,7 @@ class Section:
 
     def complete_task(self, task_name):
         for t in self.tasks:
-            if task_name == t.name:
+            if task_name == t.family_name:
                 t.completed = True
                 return f"Completed task {task_name}"
         return f"Could not find task with the name {task_name}"

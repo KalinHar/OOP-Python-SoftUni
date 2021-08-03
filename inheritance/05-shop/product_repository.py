@@ -10,19 +10,19 @@ class ProductRepository:
 
     def find(self, product_name):
         for product in self.products:
-            if product_name == product.name:
+            if product_name == product.family_name:
                 return product
 
     def remove(self, product_name):
         for product in self.products:
-            if product_name == product.name:
+            if product_name == product.family_name:
                 self.products.remove(product)
         # product = self.find(product_name)
         # if product:
         #     self.products.remove(product)
 
     def __repr__(self):
-        return '\n'.join([pr.name + ": " + str(pr.quantity) for pr in self.products])
+        return '\n'.join([pr.family_name + ": " + str(pr.quantity) for pr in self.products])
 
 
 # ban = Product("banana", 5)

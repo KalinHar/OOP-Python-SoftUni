@@ -8,11 +8,11 @@ class TestStudent(TestCase):
 
     def test_non_courses_init(self):
         none_student = Student("Riki")
-        self.assertEqual("Riki", none_student.name)
+        self.assertEqual("Riki", none_student.family_name)
         self.assertEqual({}, none_student.courses)
 
     def test_with_courses_init(self):
-        self.assertEqual("Viki", self.student.name)
+        self.assertEqual("Viki", self.student.family_name)
         self.assertEqual({"python": ["adv", 30], "Java": ["fnd", 20]}, self.student.courses)
 
     def test_correct_leave_course(self):

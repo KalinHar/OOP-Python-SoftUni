@@ -16,7 +16,7 @@ class Trainer:
 
     def release_pokemon(self, pokemon_name):
         for po in self.pokemons:
-            if pokemon_name == po.name:
+            if pokemon_name == po.family_name:
                 self.pokemons.remove(po)
                 return f"You have released {pokemon_name}"
         return "Pokemon is not caught"

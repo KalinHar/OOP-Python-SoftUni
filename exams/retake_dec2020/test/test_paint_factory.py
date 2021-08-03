@@ -8,7 +8,7 @@ class TestPaintFactory(TestCase):
         self.p_factory = PaintFactory("Color", 100)
 
     def test_init(self):
-        self.assertEqual("Color", self.p_factory.name)
+        self.assertEqual("Color", self.p_factory.family_name)
         self.assertEqual(100, self.p_factory.capacity)
         self.assertDictEqual({}, self.p_factory.ingredients)
         self.assertListEqual(["white", "yellow", "blue", "green", "red"],

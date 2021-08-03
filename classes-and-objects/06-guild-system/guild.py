@@ -8,16 +8,16 @@ class Guild:
 
     def assign_player(self, player):
         if player in self.players:
-            return f"Player {player.name} is already in the guild."
+            return f"Player {player.family_name} is already in the guild."
         if player.guild != "Unaffiliated":
-            return f"Player {player.name} is in another guild."
+            return f"Player {player.family_name} is in another guild."
         self.players.append(player)
         player.guild = self.name
-        return f"Welcome player {player.name} to the guild {self.name}"
+        return f"Welcome player {player.family_name} to the guild {self.name}"
 
     def kick_player(self, player_name):
         for pl in self.players:
-            if pl.name == player_name:
+            if pl.family_name == player_name:
                 pl.guild = "Unaffiliated"
                 self.players.remove(pl)
                 return f"Player {player_name} has been removed from the guild."

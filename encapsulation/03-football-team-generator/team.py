@@ -6,13 +6,13 @@ class Team:
 
     def add_player(self, player):
         if player in self.__players:
-            return f"Player {player.name} has already joined"
+            return f"Player {player.family_name} has already joined"
         self.__players.append(player)
-        return f"Player {player.name} joined team {self.__name}"
+        return f"Player {player.family_name} joined team {self.__name}"
 
     def remove_player(self, player_name):
         for pl in self.__players:
-            if pl.name == player_name:
+            if pl.family_name == player_name:
                 self.__players.remove(pl)
                 return pl
         return f"Player {player_name} not found"

@@ -45,7 +45,7 @@ class Bunker:
 
     def add_survivor(self, survivor):
         if survivor in self.survivors:
-            raise ValueError(f"Survivor with name {survivor.name} already exists.")
+            raise ValueError(f"Survivor with name {survivor.family_name} already exists.")
         self.survivors.append(survivor)
 
     def add_supply(self, supply):
@@ -59,14 +59,14 @@ class Bunker:
             med = self.painkillers[-1] if medicine_type == "Painkiller" else self.salves[-1]
             med.apply(survivor)
             self.medicine.remove(med)
-            return f"{survivor.name} healed successfully with {medicine_type}"
+            return f"{survivor.family_name} healed successfully with {medicine_type}"
 
     def sustain(self, survivor, sustenance_type):
         if survivor.needs_sustenance:
             sust = next(filter(lambda x: x.__class__.__name__ == sustenance_type, reversed(self.supplies)))
             sust.apply(survivor)
             self.supplies.remove(sust)
-            return f"{survivor.name} sustained successfully with {sustenance_type}"
+            return f"{survivor.family_name} sustained successfully with {sustenance_type}"
 
     def next_day(self):
         for sur in self.survivors:

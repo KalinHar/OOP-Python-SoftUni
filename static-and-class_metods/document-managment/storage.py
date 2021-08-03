@@ -19,7 +19,7 @@ class Storage:
     def edit_category(self, category_id, new_name):
         for cat in self.categories:
             if category_id == cat.id:
-                cat.name = new_name
+                cat.family_name = new_name
 
     def edit_topic(self, topic_id, new_topic, new_storage_folder):
         for top in self.topics:

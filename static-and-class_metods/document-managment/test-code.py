@@ -94,7 +94,7 @@ class TestDocumentManagement(unittest.TestCase):
     def test_storage_edit_category(self):
         self.s.add_category(self.c)
         self.s.edit_category(1, "new")
-        self.assertEqual(self.s.categories[0].name, "new")
+        self.assertEqual(self.s.categories[0].family_name, "new")
 
     def test_storage_edit_topic(self):
         self.s.add_topic(self.t)

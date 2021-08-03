@@ -14,17 +14,17 @@ class Zoo:
             return "Not enough budget"
         self.animals.append(animal)
         self.__budget -= price
-        return f"{animal.name} the {animal.__class__.__name__} added to the zoo"
+        return f"{animal.family_name} the {animal.__class__.__name__} added to the zoo"
 
     def hire_worker(self, worker):
         if len(self.workers) == self.__workers_capacity:
             return "Not enough space for worker"
         self.workers.append(worker)
-        return f"{worker.name} the {worker.__class__.__name__} hired successfully"
+        return f"{worker.family_name} the {worker.__class__.__name__} hired successfully"
 
     def fire_worker(self, worker_name):
         for w in self.workers:
-            if w.name == worker_name:
+            if w.family_name == worker_name:
                 self.workers.remove(w)
                 return f"{worker_name} fired successfully"
         return f"There is no {worker_name} in the zoo"

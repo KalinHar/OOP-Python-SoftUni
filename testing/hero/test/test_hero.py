@@ -1,4 +1,4 @@
-from project.hero import Hero
+from ..project.hero import Hero
 from unittest import TestCase, main
 
 
@@ -14,7 +14,7 @@ class TestHero(TestCase):
 
     def test_string_repr(self):
         self.assertEqual("Hero Kas: 1 lvl\nHealth: 5.5\nDamage: 7.5\n",
-                         self.hero.__str__())
+                         str(self.hero))
 
     def test_battle_with_same_name(self):
         en_hero = Hero("Kas", 1, 5.5, 7.5)

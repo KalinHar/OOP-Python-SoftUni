@@ -29,4 +29,4 @@ print(cafe.__class__.__base__.__base__.__base__.__name__)
 
 dri = cafe.__class__.__base__.__base__("water", 0.5, 200)
 print(dri.__class__.__name__)
-print(dri.name)
+print(dri.family_name)

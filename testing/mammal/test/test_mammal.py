@@ -8,7 +8,7 @@ class TestMammal(TestCase):
         self.mammal = Mammal("Tom", "cats", "meow")
 
     def test_initialization(self):
-        self.assertEqual("Tom", self.mammal.name)
+        self.assertEqual("Tom", self.mammal.family_name)
         self.assertEqual("cats", self.mammal.type)
         self.assertEqual("meow", self.mammal.sound)
         self.assertEqual("animals", self.mammal._Mammal__kingdom)

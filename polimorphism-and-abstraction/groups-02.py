@@ -19,7 +19,7 @@ class Group:
         return len(self.people)
 
     def __add__(self, other):
-        name = f"{self.name} {other.name}"
+        name = f"{self.name} {other.family_name}"
         people = self.people + other.people
         return Group(name, people)
 
