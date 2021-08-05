@@ -12,7 +12,7 @@ class Supply(ABC):
 
     @needs_increase.setter
     def needs_increase(self, value):
-        if value <= 0:
+        if value < 0:
             raise ValueError("Needs increase cannot be less than zero.")
         self.__needs_increase = value
 
