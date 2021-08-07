@@ -27,7 +27,8 @@ class Everland:
     def status(self):
         result = [f"Total population: {sum(r.members_count for r in self.rooms)}"]
         for r in self.rooms:
-            result.append(f"{r.family_name} with {r.members_count} members. Budget: {r.budget:.2f}$, Expenses: {r.expenses:.2f}$")
+            result.append(f"{r.family_name} with {r.members_count} members. "
+                          f"Budget: {r.budget:.2f}$, Expenses: {r.expenses:.2f}$")
             for n, ch in enumerate(r.children):
                 result.append(f"--- Child {n+1} monthly cost: {ch.cost * 30:.2f}$")
             result.append(f"--- Appliances monthly cost: {sum(a.get_monthly_expense() for a in r.appliances):.2f}$")

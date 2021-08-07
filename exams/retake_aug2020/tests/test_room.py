@@ -14,7 +14,6 @@ class TestRoom(TestCase):
         self.assertEqual(2, self.room.members_count)
         self.assertListEqual([], self.room.children)
         self.assertEqual(self.room.expenses, 0)
-        # self.assertTrue(hasattr(self.room, 'expenses'))
 
     def test_calc_exp(self):
         child1 = Child(5, 1, 2, 1)
