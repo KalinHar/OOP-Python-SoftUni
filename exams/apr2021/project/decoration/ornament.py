@@ -1,4 +1,4 @@
-from project.decoration.base_decoration import BaseDecoration
+from exams.apr2021.project.decoration.base_decoration import BaseDecoration
 
 
 class Ornament(BaseDecoration):
