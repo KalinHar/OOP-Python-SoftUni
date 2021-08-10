@@ -30,7 +30,8 @@ class BaseAquarium(ABC):
             return f"Successfully added {fish.__class__.__name__} to {self.name}."
 
     def remove_fish(self, fish):
-        self.fish.remove(fish)
+        if fish in self.fish:
+            self.fish.remove(fish)
 
     def add_decoration(self, decoration):
         self.decorations.append(decoration)
