@@ -32,18 +32,18 @@ class Game:
 
     def total_battle(self):
         while len(self.figures.repository) > 1:
-            fig1 = self.figures.repository.pop()
-            fig2 = self.figures.repository.pop()
+            fig1 = self.figures.repository.pop()  # take first two figs
+            fig2 = self.figures.repository.pop()  # take first two figs
             result = [self.area_battle(fig1, fig2)]
             result.append(self.circumference_battle(fig1, fig2))
-            result = [fig for fig in result if fig]
+            result = [fig for fig in result if fig]  # list with only wins results
             result = set(result)
             result = list(result)
-            if len(result) == 1:
-                self.figures.add([f for f in [fig1, fig2] if f.name == result[0]][0])
+            if len(result) == 1:  # check for winner
+                self.figures.add([f for f in [fig1, fig2] if f.name == result[0]][0])  # return the winner back
                 continue
             result = self.relative_battle(fig1, fig2)
-            self.figures.add([f for f in (fig1, fig2) if f.name == result][0])
+            self.figures.add([f for f in (fig1, fig2) if f.name == result][0])  # return the winner back
         return self.figures.repository[0]
 
     def __str__(self):
