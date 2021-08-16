@@ -43,3 +43,62 @@ def test_code():
 
 if __name__ == '__main__':
     test_code()
+
+# Added ca2 (Cake) to the food menu
+# Added we (VODA) to the drink menu
+# Added table number 54 in the bakery
+# Table 1 has been reserved for 2 people
+# Table 54 has been reserved for 8 people
+# No available table for 8 people
+# Could not find table 2
+# Table 1 ordered:
+#  - br2: 200.00g - 2.00lv
+#  - ca1: 245.00g - 1.20lv
+# Rose does not have in the menu:
+# ca3
+#
+# Table 1 ordered:
+#  - br2: 200.00g - 2.00lv
+#  - ca1: 245.00g - 1.20lv
+#
+# Could not find table 2
+# Table 1 ordered:
+#  - te JS - 200.00ml - 2.50lv
+#  - we VODA - 500.00ml - 1.50lv
+# Rose does not have in the menu:
+# ca1
+#
+# Table 1 ordered:
+#  - te JS - 200.00ml - 2.50lv
+#  - we VODA - 500.00ml - 1.50lv
+#
+# Table 54 ordered:
+#  - te JS - 200.00ml - 2.50lv
+#  - we VODA - 500.00ml - 1.50lv
+#
+# Table: 3
+# Type: InsideTable
+# Capacity: 6
+# Table: 52
+# Type: OutsideTable
+# Capacity: 4
+#
+# Table: 1
+# Bill: 14.40
+# None
+# Table: 54
+# Bill: 4.00
+# Table: 1
+# Type: InsideTable
+# Capacity: 2
+# Table: 3
+# Type: InsideTable
+# Capacity: 6
+# Table: 52
+# Type: OutsideTable
+# Capacity: 4
+# Table: 54
+# Type: OutsideTable
+# Capacity: 8
+#
+# Total income: 18.40lv
